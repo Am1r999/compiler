@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/myprogram.dir/src/common.c.o CMakeFiles/myprogram.dir/src/divide_fun.c.o CMakeFiles/myprogram.dir/src/lex.yy.c.o CMakeFiles/myprogram.dir/src/minus_fun.c.o CMakeFiles/myprogram.dir/src/parser.tab.c.o CMakeFiles/myprogram.dir/src/plus_fun.c.o CMakeFiles/myprogram.dir/src/times_fun.c.o -o myprogram 

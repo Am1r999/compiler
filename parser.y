@@ -6,7 +6,7 @@
 #include "times_fun.h"
 #include "divide_fun.h"
 int counter = 0;
-struct 
+
 %}
 
 %union {

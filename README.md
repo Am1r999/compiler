@@ -15,10 +15,10 @@ Design a specialized compiler for parsing unconventional mathematical expression
 ## Test case:
 | Input | output |
 | ---------|----------|
-| 34276524+781=  | t1 = 34276524+781;<br> t1 = 3427652481;|
-| 342765- 7661 = | t1 = 342765- 7661;<br> t1 = 3425;|
-| 3142752 *782=  | t1 = 3142752 *782;<br> t1 = 32427528;|
-| 34276524/ 121= | t1 = 34276524/ 121;<br> t1 = 327652; |
+| 34276524+781=  | t1 = 34276524 + 781;<br> t1 = 3427652481;|
+| 342765- 7661 = | t1 = 342765 - 7661;<br> t1 = 3425;|
+| 3142752 *782=  | t1 = 3142752 * 782;<br> t1 = 32427528;|
+| 34276524/ 121= | t1 = 34276524 / 121;<br> t1 = 327652; |
 | 34276+342 *34- 734/(25 +44)= |t1 = 342 * 34;<br> t1 = 3427;<br> t2 = 34276 + t1;<br> t2 = 34276;<br> t3 = 25 + 44;<br> t3 = 2544;<br> t4 = 734 / t3;<br> t4 = 734;<br> t5 = t2 - t4;<br> t5 = 26;| 
 
 - The compiler design encompasses three key phases: lexical analysis, syntax analysis, and intermediate code generation. 

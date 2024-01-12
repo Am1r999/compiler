@@ -1,3 +1,0 @@
-/home/amir/Desktop/cmake_test/build/CMakeFiles/myprogram.dir
-/home/amir/Desktop/cmake_test/build/CMakeFiles/edit_cache.dir
-/home/amir/Desktop/cmake_test/build/CMakeFiles/rebuild_cache.dir

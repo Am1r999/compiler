@@ -5,7 +5,12 @@
 #include "minus_fun.h"
 #include "times_fun.h"
 #include "divide_fun.h"
+<<<<<<< HEAD
 long long int count = 1;
+=======
+int counter = 0;
+
+>>>>>>> 06592a427c8d75f39c5c1a575cba8bc9e7e811c2
 %}
 
 %union {

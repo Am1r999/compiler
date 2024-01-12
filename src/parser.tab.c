@@ -75,7 +75,7 @@
 #include "minus_fun.h"
 #include "times_fun.h"
 #include "divide_fun.h"
-int counter = 0;
+long long int count = 1;
 
 #line 81 "parser.tab.c"
 
@@ -125,6 +125,17 @@ typedef enum yysymbol_kind_t yysymbol_kind_t;
 
 
 
+/* Unqualified %code blocks.  */
+#line 19 "parser.y"
+
+  struct Temp newTemp(long long int value) {
+      struct Temp temp;
+      temp.id = count++;
+      temp.value = value;
+      return temp;
+  }
+
+#line 139 "parser.tab.c"
 
 #ifdef short
 # undef short
@@ -506,7 +517,7 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    21,    21,    23,    28,    33,    38,    43,    44
+       0,    35,    35,    37,    46,    55,    64,    73,    76
 };
 #endif
 
@@ -1071,59 +1082,89 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* input: expr EQUAL  */
-#line 21 "parser.y"
-                            { printf("t1 = %lld\n", (yyvsp[-1].val)); }
-#line 1077 "parser.tab.c"
+#line 35 "parser.y"
+                            { }
+#line 1088 "parser.tab.c"
     break;
 
   case 3: /* expr: expr PLUS expr  */
-#line 23 "parser.y"
-                            { (yyval.val) = plusfun((yyvsp[-2].val), (yyvsp[0].val)); 
-                              printf("t%d = %lld + %lld;\n", counter, (yyvsp[-2].val), (yyvsp[0].val)); 
-                              printf("t%d = %lld;\n", counter, (yyval.val));
-                              counter++;
+#line 37 "parser.y"
+                            { 
+                              (yyval.temp) = newTemp(plusfun((yyvsp[-2].temp).value, (yyvsp[0].temp).value)); 
+                              printf("t%lld = ", (yyval.temp).id);
+                              if ((yyvsp[-2].temp).id == (yyvsp[-2].temp).value) printf("%lld + ", (yyvsp[-2].temp).id);
+                              else printf("t%lld + ", (yyvsp[-2].temp).id);
+                              if ((yyvsp[0].temp).id == (yyvsp[0].temp).value) printf("%lld;\n", (yyvsp[0].temp).id);
+                              else printf("t%lld;\n", (yyvsp[0].temp).id);
+                              printf("t%lld = %lld;\n", (yyval.temp).id, (yyval.temp).value);
                             }
-#line 1087 "parser.tab.c"
+#line 1102 "parser.tab.c"
     break;
 
   case 4: /* expr: expr MINUS expr  */
-#line 28 "parser.y"
-                            { (yyval.val) = minusfun((yyvsp[-2].val), (yyvsp[0].val)); 
-                              printf("t%d = %lld - %lld;\n", counter, (yyvsp[-2].val), (yyvsp[0].val)); 
-                              printf("t%d = %lld;\n", counter, (yyval.val));
-                              counter++;                             
+#line 46 "parser.y"
+                            { 
+                              (yyval.temp) = newTemp(minusfun((yyvsp[-2].temp).value, (yyvsp[0].temp).value)); 
+                              printf("t%lld = ", (yyval.temp).id);
+                              if ((yyvsp[-2].temp).id == (yyvsp[-2].temp).value) printf("%lld - ", (yyvsp[-2].temp).id);
+                              else printf("t%lld - ", (yyvsp[-2].temp).id);
+                              if ((yyvsp[0].temp).id == (yyvsp[0].temp).value) printf("%lld;\n", (yyvsp[0].temp).id);
+                              else printf("t%lld;\n", (yyvsp[0].temp).id);
+                              printf("t%lld = %lld;\n", (yyval.temp).id, (yyval.temp).value);
                             }
-#line 1097 "parser.tab.c"
+#line 1116 "parser.tab.c"
     break;
 
   case 5: /* expr: expr TIMES expr  */
-#line 33 "parser.y"
-                            { (yyval.val) = timesfun((yyvsp[-2].val), (yyvsp[0].val));
-                              printf("t%d = %lld * %lld;\n", ++counter, (yyvsp[-2].val), (yyvsp[0].val)); 
-                              printf("t%d = %lld;\n", counter, (yyval.val));
-                              counter++; 
+#line 55 "parser.y"
+                            {
+                              (yyval.temp) = newTemp(timesfun((yyvsp[-2].temp).value, (yyvsp[0].temp).value)); 
+                              printf("t%lld = ", (yyval.temp).id);
+                              if ((yyvsp[-2].temp).id == (yyvsp[-2].temp).value) printf("%lld * ", (yyvsp[-2].temp).id);
+                              else printf("t%lld * ", (yyvsp[-2].temp).id);
+                              if ((yyvsp[0].temp).id == (yyvsp[0].temp).value) printf("%lld;\n", (yyvsp[0].temp).id);
+                              else printf("t%lld;\n", (yyvsp[0].temp).id);
+                              printf("t%lld = %lld;\n", (yyval.temp).id, (yyval.temp).value);
                             }
-#line 1107 "parser.tab.c"
+#line 1130 "parser.tab.c"
     break;
 
   case 6: /* expr: expr DIVIDE expr  */
-#line 38 "parser.y"
-                            { (yyval.val) = dividefun((yyvsp[-2].val), (yyvsp[0].val));
-                              printf("t%d = %lld \/ %lld;\n", counter, (yyvsp[-2].val), (yyvsp[0].val)); 
-                              printf("t%d = %lld;\n", counter, (yyval.val));
-                              counter++;
+#line 64 "parser.y"
+                            {
+                              (yyval.temp) = newTemp(dividefun((yyvsp[-2].temp).value, (yyvsp[0].temp).value)); 
+                              printf("t%lld = ", (yyval.temp).id);
+                              if ((yyvsp[-2].temp).id == (yyvsp[-2].temp).value) printf("%lld \/ ", (yyvsp[-2].temp).id);
+                              else printf("t%lld \/ ", (yyvsp[-2].temp).id);
+                              if ((yyvsp[0].temp).id == (yyvsp[0].temp).value) printf("%lld;\n", (yyvsp[0].temp).id);
+                              else printf("t%lld;\n", (yyvsp[0].temp).id);
+                              printf("t%lld = %lld;\n", (yyval.temp).id, (yyval.temp).value);
                             }
-#line 1117 "parser.tab.c"
+#line 1144 "parser.tab.c"
     break;
 
   case 7: /* expr: LPAREN expr RPAREN  */
-#line 43 "parser.y"
-                            { (yyval.val) = (yyvsp[-1].val); }
-#line 1123 "parser.tab.c"
+#line 73 "parser.y"
+                            { 
+                              (yyval.temp) = (yyvsp[-1].temp);
+                            }
+#line 1152 "parser.tab.c"
+    break;
+
+  case 8: /* expr: NUMBER  */
+#line 76 "parser.y"
+                            { 
+                              struct Temp temp;
+                              temp.id = (yyvsp[0].temp).value;
+                              temp.value = (yyvsp[0].temp).value;
+                              (yyval.temp) = temp;
+                              //printf("The number was read and both id: %lld and value: %lld are the same.\n", $$.id, $$.value);
+                            }
+#line 1164 "parser.tab.c"
     break;
 
 
-#line 1127 "parser.tab.c"
+#line 1168 "parser.tab.c"
 
       default: break;
     }
@@ -1316,7 +1357,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 46 "parser.y"
+#line 84 "parser.y"
 
 
 int main() {

@@ -665,10 +665,12 @@ YY_DECL
 		}
 
 	{
-#line 8 "lexer.l"
+#line 9 "lexer.l"
 
 
-#line 671 "lex.yy.c"
+
+
+#line 673 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -727,61 +729,61 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 10 "lexer.l"
-{ sscanf(yytext, "%lld", &yylval.val); return NUMBER; }
+#line 13 "lexer.l"
+{ sscanf(yytext, "%lld", &yylval.temp.value); return NUMBER; }
 	YY_BREAK
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 11 "lexer.l"
+#line 14 "lexer.l"
 ; // Skip whitespace
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 12 "lexer.l"
+#line 15 "lexer.l"
 { return PLUS; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 13 "lexer.l"
+#line 16 "lexer.l"
 { return MINUS; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 14 "lexer.l"
+#line 17 "lexer.l"
 { return TIMES; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 15 "lexer.l"
+#line 18 "lexer.l"
 { return DIVIDE; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 16 "lexer.l"
+#line 19 "lexer.l"
 { return LPAREN; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 17 "lexer.l"
+#line 20 "lexer.l"
 { return RPAREN; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 18 "lexer.l"
+#line 21 "lexer.l"
 { return EQUAL; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 19 "lexer.l"
+#line 22 "lexer.l"
 { fprintf(stderr, "Error: Unknown character '%s'\n", yytext); }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 21 "lexer.l"
+#line 24 "lexer.l"
 ECHO;
 	YY_BREAK
-#line 784 "lex.yy.c"
+#line 786 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1786,7 +1788,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 21 "lexer.l"
+#line 24 "lexer.l"
 
 
 int yywrap(void) {

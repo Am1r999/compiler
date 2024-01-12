@@ -73,9 +73,13 @@ union YYSTYPE
 {
 #line 11 "parser.y"
 
-    long long int val;  // Type for token values
 
-#line 79 "parser.tab.h"
+    struct Temp {
+        long long int id;
+        long long int value;
+    } temp;
+
+#line 83 "parser.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

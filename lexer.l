@@ -7,7 +7,7 @@ NUMBER      [0-9]
 
 %%
 
-{NUMBER}+   { sscanf(yytext, "%lld", &yylval.val); return NUMBER; }
+{NUMBER}+   { sscanf(yytext, "%lld", &yylval.temp.value); return NUMBER; }
 {ws}        ; // Skip whitespace
 "+"         { return PLUS; }
 "-"         { return MINUS; }

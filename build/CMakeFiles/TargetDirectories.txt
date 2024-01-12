@@ -1,0 +1,3 @@
+/home/amir/Desktop/Term7/Compiler/compiler/build/CMakeFiles/myprogram.dir
+/home/amir/Desktop/Term7/Compiler/compiler/build/CMakeFiles/edit_cache.dir
+/home/amir/Desktop/Term7/Compiler/compiler/build/CMakeFiles/rebuild_cache.dir
